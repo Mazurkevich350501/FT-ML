@@ -13,19 +13,19 @@ def generate_features_and_save_to_file(im_path, feat_dir):
     joblib.dump(fd, fd_path) 
 
 def extract_features():
-    if not os.path.isdir(pos_feat_ph):
-        os.makedirs(pos_feat_ph)
+    if not os.path.isdir(pos_feat_path):
+        os.makedirs(pos_feat_path)
 
-    if not os.path.isdir(neg_feat_ph):
-        os.makedirs(neg_feat_ph)
+    if not os.path.isdir(neg_feat_path):
+        os.makedirs(neg_feat_path)
 
     for im_path in glob.glob(os.path.join(pos_im_path, "*")):
-        generate_features_and_save_to_file(im_path, pos_feat_ph)
-    print("Positive features saved in {}".format(pos_feat_ph))
+        generate_features_and_save_to_file(im_path, pos_feat_path)
+    print("Positive features saved in {}".format(pos_feat_path))
 
     for im_path in glob.glob(os.path.join(neg_im_path, "*")):
-        generate_features_and_save_to_file(im_path, neg_feat_ph)
-    print("Negative features saved in {}".format(neg_feat_ph))
+        generate_features_and_save_to_file(im_path, neg_feat_path)
+    print("Negative features saved in {}".format(neg_feat_path))
 
     print("Completed calculating features from training images")
 
